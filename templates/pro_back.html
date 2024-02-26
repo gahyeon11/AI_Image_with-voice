@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>작업실/전문가2</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black%3A400"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500%2C600%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anybody%3A700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;300;400;500&family=Inter:wght@500;600&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/styles/pro_back.css"/>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+</head>
+<body>
+  <div id="loadingOverlay" style="display: none;">
+    <div class="loadingContent">
+      <img src="../static/assets/loading.gif" alt="생성 중..."/>
+      <p>생성 중..</p>
+    </div>
+  </div>
+<div class="item-1-LC1">
+  <div class="rectangle-left"></div>
+  <!-- <a href="{{ url_for('pro_style') }}">   
+  <img class="auto-group-ejmt-EoB" src="../static/assets/left_rectangle.png"/></a> -->
+  <div class="auto-group-5ndw-m2R">
+    <div class="group-61-5J1">
+      <div class="auto-group-hcmx-ERo">
+        <div class="group-62-x6u">
+          <a href="{{ url_for('intro') }}">  
+          <img class="group-11-szZ" src="../static/assets/group-11-zWd.png"/></a>
+          <div class="me-muse-pQ1">ME:MUSE</div>
+        </div>
+        <div class="group-10-vC9">
+          <div class="group-1-5Kw">
+            <div class="workplace-oWq"><a href="{{ url_for('workplace') }}">Workplace</a></div>
+            <div class="museum-v5f"><a href="{{ url_for('whole_gallery1') }}">Gallery</a></div>
+            <div class="guide-3RB"><a href="{{ url_for('guide') }}">Guide</a></div>
+            <div class="login-9z1"><a href="{{ url_for('logout') }}">logout</a></div>
+          </div>
+          <div class="group-2-5sf">
+            <a href="{{ url_for('my_page') }}"> 
+            <img class="icons8-user1-1-qrq" src="../static/assets/icons8-user1-1-Gv5.png"/></a>
+          </div>
+        </div>
+      </div>
+      <img class="line-2-mkV" src="../static/assets/line-2-eTj.png"/>
+    </div>
+    <div class="auto-group-fcot-v7b">
+      <div class="group-14-Ee5">
+        <div class="item--aC9">
+          <span class="item--aC9-sub-0">{{ username }}&nbsp;
+          </span>
+          <span class="item--aC9-sub-1"> 작가님의 작업</span>
+        </div>
+        <div class="auto-group-cw8m-e5X">
+          <div class="line-4-AZf">
+          </div>
+          <div class="ellipse-1-u1T">
+          </div>
+          <div class="item--QD7">스타일</div>
+          <div class="ellipse-2-VkM">
+          </div>
+          <div class="item--QcR">배경</div>
+          <div class="ellipse-3-gZw">
+          </div>
+          <div class="item--bgu">오브젝트</div>
+          <div class="ellipse-4-VXP">
+          </div>
+          <div class="item--RA9">배치</div>
+          <div class="ellipse-5-v6u">
+          </div>
+          <div class="item--2vd">필터</div>
+          <!-- <div class="ellipse-6-Keq">
+          </div> -->
+          <!-- <div class="item--FYV">필터</div> -->
+        </div>
+      </div>
+      <div class="item--9ds">
+        <span class="item--9ds-sub-0">어떤 배경을 그리고 싶은지 프롬프트를 입력 또는 말씀해 주세요.</span>
+      </div>
+      <form action="{{ url_for('pro_back') }}" method="post" id="mood" style="width:850px">
+        <div class="auto-group-ct25-WWM">
+          <textarea id="background" required autofocus name="original_text" placeholder="예) 저녁 시간대, 공원, 로우 앵글" cols="30" rows="7"></textarea>
+        </div>
+
+        <br>
+        <div class="item--8Xj" style="transform:translate(43%,0)">
+          <span class="item--8Xj-sub-0">재시도를 하고 싶다면
+          <span style="color:#1400ff; font-weight:bold">‘다시’</span>
+          라고 말씀해 주세요.
+          <br/>
+          다음 단계로 넘어가고 싶다면 클릭 또는 
+          <span style="color:#1400ff; font-weight:bold">‘다음’</span>
+          이라고 말씀해 주세요.</span>
+        </div>
+        <div class="group-32-x2u">
+            <!-- 다시 버튼 -->
+            <a href="{{ url_for('pro_back') }}"id="resetButton" style="color:white">다시</a>
+            <!-- <button type="button" id="resetButton" style="background:#003D75; color:white">다시</button> -->
+            <!-- <button type="button" id="nextButton" style="background:#003D75; color:white">다음</button> -->
+        </div>
+        <div class="group-32-next">
+          <!-- 다음 버튼 -->
+          <a href="#" id="nextButton" style="color:white">다음</a>
+        </div>
+      </form>
+      <button type="button" id="startRecognition" class="startRecognitionButton"></button> 
+    </div>
+    <div class="mic-wrapper">
+      <div class="mic-blink-circle"></div>
+      <img class="bi-mic-fill-JTK" src="../static/assets/bi-mic-fill-1J9.png" style="
+      width:  45px;"/>
+    </div>
+  </div>
+  </div>
+  <div class="rectangle-right">
+
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 초기 로딩 시 로딩 화면 숨김
+  window.onload = function() {
+    document.getElementById('loadingOverlay').style.display = 'none';
+  };
+
+  // 모든 링크에 대한 클릭 이벤트 처리
+  document.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // 기본 링크 이동을 중단
+      var href = this.getAttribute('href'); // 링크의 href 값 가져오기
+
+      // 로딩 화면 표시
+      document.getElementById('loadingOverlay').style.display = 'flex';
+
+      // 지정된 시간 후에 페이지 이동
+    });
+  });
+});
+  var translatedTextGlobal = '';
+
+  document.getElementById('mood').addEventListener('submit', function(event){
+    event.preventDefault();
+    sendRequestAndRedirect();
+});
+
+
+  if (annyang) {
+    annyang.setLanguage('ko');
+    var final_transcripts = [];
+    var result_save = false;
+
+    annyang.addCallback('result', function (phrases) {
+    if (phrases[0].trim() == "음성 시작") {
+      result_save = true;
+    } else if (phrases[0].trim() == "음성 중지") {
+      result_save = false;
+    }
+    if (result_save) {
+      var final_transcript = phrases.map(p => p.trim()).join(' ');
+      final_transcripts.push(final_transcript);
+
+        // 음성 인식 결과를 텍스트 박스에 표시
+        document.getElementById('background').value = final_transcripts.join(' ');
+
+        // 음성 명령 처리
+        if (final_transcript.includes("다음")) {
+          document.getElementById('nextButton').click();
+        } else if (final_transcript.includes("다시")) {
+          document.getElementById('resetButton').click();
+        }
+        }
+      });
+
+const startButton = document.getElementById('startRecognition');
+startButton.addEventListener('click', function () {
+  result_save = !result_save;
+      });
+
+  annyang.start({ autoRestart: false, continuous: true });
+  } else {
+    alert('Sorry, your browser does not support speech recognition.');
+  }
+
+const resetButton = document.getElementById('resetButton');
+resetButton.addEventListener('click', function () {
+  document.getElementById('background').value = '';
+});
+
+const nextButton = document.getElementById('nextButton');
+nextButton.addEventListener('click', function () {
+  sendRequestAndRedirect();
+});
+
+   // 번역 요청 및 서버에 데이터 전송
+async function sendRequestAndRedirect() {
+    const textToTranslate = document.getElementById('background').value;
+    try{
+      const translateResponse = await fetch('/translate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 'text': textToTranslate }),
+    });
+    const data = await translateResponse.json();
+
+    // 여기서 /pro_back으로의 요청 처리
+    const proBackResponse = await fetch('/pro_back', {
+
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ translatedText: data.translatedText })
+    });
+    const proBackData = await proBackResponse.json();
+
+    if (proBackData.redirect){
+      window.location.href = proBackData.redirect;
+    }
+  } catch (error){
+    console.error('Error in request or redirect:', error);
+  }
+}
+</script>
+
+</body>
+</html>

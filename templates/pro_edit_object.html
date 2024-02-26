@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>작업실/전문가9</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black%3A400"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500%2C600%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anybody%3A700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;300;400;500&family=Inter:wght@500;600&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/styles/pro_edit_object.css"/>
+</head>
+<body>
+  <div id="loadingOverlay" style="display: none;">
+  <div class="loadingContent">
+    <img src="../static/assets/loading.gif" alt="생성 중..."/>
+    <p>생성 중...</p>
+  </div>
+</div>
+<div class="item-7-wMT">
+  <div class="rectangle-left">
+  </div>
+  <div class="auto-group-pqnh-NxZ">
+    <div class="group-61-uBo">
+      <div class="auto-group-tkkd-44h">
+        <div class="group-62-mUu">
+          <a href="{{ url_for('intro') }}"> 
+          <img class="group-11-tpR" src="../static/assets/group-11.png"/></a>
+          <div class="me-muse-SL9">ME:MUSE</div>
+        </div>
+        <div class="group-10-8yf">
+          <div class="group-1-uDj">
+            <div class="workplace-dQd"><a href="{{ url_for('workplace') }}">Workplace</a></div>
+            <div class="museum-kVF"><a href="{{ url_for('whole_gallery1') }}">Gallery</a></div>
+            <div class="guide-HEH"><a href="{{ url_for('guide') }}">Guide</a></div>
+            <div class="login-zeV"><a href="{{ url_for('logout') }}">logout</a></div>
+          </div>
+          <div class="group-2-Wsj">
+            <a href="{{ url_for('my_page') }}"> 
+            <img class="icons8-user1-1-g1X" src="../static/assets/icons8-user1-1-VvH.png"/></a>
+          </div>
+        </div>
+      </div>
+      <img class="line-2-oM3" src="../static/assets/line-2-3PX.png"/>
+    </div>
+    <div class="auto-group-ck7s-kGH">
+      <div class="item--J2u" >작가님의 그림이에요!</div>
+      <div class="item--4wB">
+      완성됐어요! 오브젝트 배치를 변경할까요?
+      <br/>
+      클릭 또는 말씀해 주세요.
+      </div>
+      <div class="auto-group-6ved-gxZ">
+        <div class="group-42-RQM"><a href="{{ url_for('pro_filter') }}" id = "noLink" style="color:white">아니요</a></div>
+        <div class="auto-group-etut-tHw"><a href="{{ url_for('pro_edit_obj_num') }}"  style="color:white">예</a></div>
+      </div>
+      <div class="rectangle-9-kL9">
+        <div class="image-container">
+          {% if background_image %}
+              <img class="background-image" id="output-image" src="{{ url_for('static', filename=background_image) }}" alt="Background Image">
+          {% endif %}
+          {% if processed_image %}
+              <img class="processed-image" id="output-image" src="{{ url_for('static', filename=processed_image) }}" alt="Processed Image">
+          {% endif %}
+        </div>      
+      </div>
+    
+      <div class="group-14-sff">
+        <div class="item--CC9">
+          <span class="item--CC9-sub-0">{{ username }}&nbsp;</span>
+          <span class="item--CC9-sub-1"> 작가님의 작업</span>
+        </div>
+        <div class="auto-group-3f8m-tz5">
+          <div class="line-4-EY9">
+          </div>
+          <div class="ellipse-1-a6D">
+          </div>
+          <div class="item--guw">스타일</div>
+          <div class="ellipse-2-P3f">
+          </div>
+          <div class="item--cSD">배경</div>
+          <div class="ellipse-3-6cH">
+          </div>
+          <div class="item--cqX">오브젝트</div>
+          <div class="ellipse-4-7nH">
+          </div>
+          <div class="item--E6D">배치</div>
+          <div class="ellipse-5-KNZ">
+          </div>
+          <div class="item--du3">필터</div>
+          <!-- <div class="ellipse-6-K1B">
+          </div> -->
+          <!-- <div class="item--2gH">필터</div> -->
+        </div>
+      </div>
+      <div class="mic-wrapper">
+        <div class="mic-blink-circle"></div>
+        <img class="bi-mic-fill-JTK" src="../static/assets/bi-mic-fill-1J9.png" style="
+        width:  45px;"/>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="rectangle-30-KQV">
+  </div> -->
+  <div class="rectangle-right">
+  </div>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // 페이지 로딩 완료 시 로딩 화면 숨기기
+    document.getElementById('loadingOverlay').style.display = 'none';
+
+    function dataURItoBlob(dataURI) {
+      const byteString = atob(dataURI.split(',')[1]);
+      const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+      const ab = new ArrayBuffer(byteString.length);
+      const ia = new Uint8Array(ab);
+      for (let i = 0; i < byteString.length; i++) {
+          ia[i] = byteString.charCodeAt(i);
+      }
+      return new Blob([ab], { type: mimeString });
+  }
+
+  // "아니오" 링크 엘리먼트 가져오기 및 클릭 이벤트 리스너 추가
+  const noLink = document.querySelector('.group-42-RQM a');
+  noLink.addEventListener('click', async function(event) {
+      event.preventDefault();
+
+      // 특정 요소만 캡처하기 위해 해당 요소를 지정
+      const elementToCapture = document.querySelector('.rectangle-9-kL9');
+
+      html2canvas(elementToCapture).then(canvas => {
+          const dataUrl = canvas.toDataURL('image/png');
+
+          fetch('/save-screenshot', {
+              method: 'POST',
+              body: JSON.stringify({ image: dataUrl }),
+              headers: { 'Content-Type': 'application/json' }
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              return response.json();
+          })
+          .then(data => {
+              if (data.message === 'Screenshot saved successfully') {
+                  window.location.href = "{{ url_for('pro_filter') }}";
+              }
+          })
+          .catch(error => {
+                console.error('Error_new_object:', error);
+                // 에러 발생 시 로딩 화면 숨기기
+                document.getElementById('loadingOverlay').style.display = 'none';
+            });
+        });
+    });
+
+    // 페이지 이동 버튼 클릭 이벤트 추가
+    document.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            // 로딩 화면 표시
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        });
+    });
+});
+    // 음성 인식 API 초기화
+  const recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+
+  // 음성 인식 시작
+  recognition.start();
+
+  // 음성 인식 결과 이벤트 리스너
+  recognition.onresult = (event) => {
+    const result = event.results[event.results.length - 1][0].transcript;
+    console.log('음성 인식 결과:', result);
+
+    // 인식된 음성 명령에 따라 URL로 이동
+    switch (result) {
+    case '마이페이지':
+      window.location.href = '/mypage'; // 절대 경로 사용
+      break;
+    case '가이드':
+      window.location.href = '/guide'; // 절대 경로 사용
+      break;
+    // case '이전으로':
+    //   window.location.href = '/pro_more_object'; // 절대 경로 사용
+    //   break;
+    case '예':
+      window.location.href = '/pro_edit_obj_num'; // 절대 경로 사용
+      break; 
+    case '아니요':
+      window.location.href = '/pro_filter'; // 절대 경로 사용
+      break; 
+    // 다른 명령에 대한 처리도 추가할 수 있습니다.
+  }
+};
+</script>
+</body>
+</html>

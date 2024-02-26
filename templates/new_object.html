@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>작업실/초보자4</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black%3A400"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500%2C600%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anybody%3A700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;300;400;500&family=Inter:wght@500;600&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/styles/new_object.css"/>
+</head>
+<body>
+  <link rel="stylesheet" href="../static/styles/new_object.css"/>
+</head>
+<body>
+<div id="loadingOverlay" style="display: none;">
+  <div class="loadingContent">
+    <img src="../static/assets/loading.gif" alt="생성 중..."/>
+    <p>생성 중..</p>
+  </div>
+</div>
+<div class="item-3-9kD">
+  <div class="rectangle-left"></div>
+  <a href="{{url_for("new_back")}}">   
+  <!-- <img class="auto-group-f5c5-sRK" src="../static/assets/left_rectangle.png"/></a> -->
+  <div class="auto-group-vayq-oJy">
+    <div class="group-61-KYD">
+      <div class="auto-group-9t17-gNm">
+        <div class="group-62-Pny">
+          <a href="{{ url_for("intro")}}"> 
+          <img class="group-11-6xH" src="../static/assets/group-11-FnZ.png"/></a>
+          <div class="me-muse-EYh">ME:MUSE</div>
+        </div>
+        <div class="group-10-vgR">
+          <div class="group-1-657">
+            <div class="workplace-pG1"><a href="{{ url_for("workplace")  }}">Workplace</a></div>
+            <div class="museum-XRK"><a href="{{ url_for("whole_gallery1")}}">Gallery</a></div>
+            <div class="guide-F6R"><a href="{{ url_for("guide")}}">Guide</a></div>
+            <div class="login-xFj"><a href="{{url_for("logout")}}">logout</a></div>
+          </div>
+          <div class="group-2-Uzm">
+            <a href="{{ url_for("my_page")}}"> 
+            <img class="icons8-user1-1-3Y5" src="../static/assets/icons8-user1-1-4yf.png"/></a>
+          </div>
+        </div>
+      </div>
+      <img class="line-2-Mof" src="../static/assets/line-2-BwP.png"/>
+    </div>
+    <div class="auto-group-ldfx-tYh">
+      <div class="group-14-E6m">
+        <div class="item--Yt9">
+          <span class="item--Yt9-sub-0">{{ username }}&nbsp;</span>
+          <span class="item--Yt9-sub-1"> 작가님의 작업</span>
+        </div>
+        <div class="auto-group-9xrd-d2R">
+          <div class="line-4-A2M">
+          </div>
+          <div class="ellipse-1-tU9">
+          </div>
+          <div class="item--Czd">스타일</div>
+          <div class="ellipse-2-64R">
+          </div>
+          <div class="item--Q57">구도</div>
+          <div class="ellipse-3-5S9">
+          </div>
+          <div class="item--ado">배경</div>
+          <div class="ellipse-4-UjB">
+          </div>
+          <div class="item--PLM">오브젝트</div>
+          <div class="ellipse-5-V8V">
+          </div>
+          <div class="item--bxD">필터</div>
+        </div>
+      </div>
+      <div class="item--Vnh">그리고 싶은 그림의 사물을 클릭하거나 번호를 말씀해 주세요.</div><br><br>
+      <div class="auto-group-mdx7-LHX">
+        <div class="item--3xd">1. 남자</div>
+        <div class="item--PFo">2. 여자</div>
+        <div class="item--uzq">3. 강아지</div>
+        <div class="item--EXK">4. X (배경만)</div>
+      </div>
+      <div class="auto-group-s8yf-a5P">
+        <a href="{{url_for("new_filter")}}"> <div class="rectangle-22-hQu" data-prompt="man, male,a boy, guy, handsome man, solo," 
+          data-prompt2="nsfw, lowres, wortst quality, watermark, bad hands, missing fingers, extra arms, bed legs,">
+          <img src="../static/assets/object_men.png">
+        </div></a>
+        <a href="{{url_for("new_filter")}}"> <div class="rectangle-26-SNV" data-prompt="a girl, beautiful face, woman, high detailed skin, solo,"
+          data-prompt2="nsfw, lowres, wortst quality, watermark, bad hands, missing fingers, extra arms, bed legs,">
+          <img src="../static/assets/object_girl.png">
+        </div></a>
+        <a href="{{url_for("new_filter")}}"> <div class="rectangle-27-ytD" data-prompt="animal, dog, cute dog,"
+          data-prompt2="nsfw, lowres, wortst quality, watermark, bad hands, missing fingers, extra arms, bed legs, human,">
+          <img src="../static/assets/object_dog.png">
+        </div></a>
+        <a href="{{url_for("new_filter")}}"> <div class="rectangle-28-jMb" data-prompt="no humans, landscape,"
+          data-prompt2="nsfw, lowres, wortst quality, watermark, bad hands, missing fingers, extra arms, bed legs,">
+          <img src="../static/assets/object_none.png">
+        </div></a>
+      </div>
+      <div class="mic-wrapper">
+        <div class="mic-blink-circle"></div>
+        <img class="bi-mic-fill-JTK" src="../static/assets/bi-mic-fill-1J9.png" style="
+        width:  45px;"/>
+      </div>
+    </div>
+  </div>
+  <div class="rectangle-right">
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 페이지 로딩 완료 시 로딩 화면 숨기기
+    document.getElementById('loadingOverlay').style.display = 'none';
+
+    // 모든 rectangle 요소에 이벤트 리스너 추가
+    document.querySelectorAll('.rectangle-22-hQu, .rectangle-26-SNV, .rectangle-27-ytD, .rectangle-28-jMb').forEach(function(rectangle) {
+        rectangle.addEventListener('click', function(event) {
+            event.preventDefault(); // 기본 링크 동작 방지
+
+            // 클릭된 요소의 데이터 값 가져오기
+            var prompt = this.getAttribute('data-prompt');
+            var negativePrompt = this.getAttribute('data-prompt2');
+
+            // 로딩 화면 표시
+            document.getElementById('loadingOverlay').style.display = 'flex';
+
+            // 서버에 포스트 요청
+            fetch('/new_object', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    prompt: prompt,
+                    negative: negativePrompt
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 서버로부터 리다이렉트 주소를 받아 페이지 이동
+                if(data.redirect){
+                    window.location.href = data.redirect;
+                }
+            })
+            .catch(error => {
+                console.error('Error_new_object:', error);
+                // 에러 발생 시 로딩 화면 숨기기
+                document.getElementById('loadingOverlay').style.display = 'none';
+            });
+        });
+    });
+
+    // 페이지 이동 버튼 클릭 이벤트 추가
+    document.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            // 로딩 화면 표시
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        });
+    });
+});
+
+// 음성 인식 API 초기화
+const recognition = new webkitSpeechRecognition();
+recognition.continuous = true;
+recognition.interimResults = true;
+recognition.lang = 'ko-KR'; // 한국어로 설정
+
+  // 음성 인식 시작
+recognition.start();
+
+  // 음성 인식 결과 이벤트 리스너
+  recognition.onresult = (event) => {
+      const result = event.results[event.results.length - 1][0].transcript;
+      console.log('음성 인식 결과:', result);
+
+      // 인식된 음성 명령에 따라 URL로 이동
+      if (result.includes('마이페이지')) {
+        window.location.href = '/mypage';
+      } else if (result.includes('가이드')) {
+        window.location.href = '/guide';
+      } else if (result.includes('1번')) {
+        document.querySelector('.rectangle-22-hQu').click();
+      } else if (result.includes('2번')) {
+        document.querySelector('.rectangle-26-SNV').click();
+      } else if (result.includes('3번')) {
+        document.querySelector('.rectangle-27-ytD').click();
+      }  else if (result.includes('4번')) {
+        document.querySelector('.rectangle-28-jMb').click();
+      } else if (result.includes('이전으로')) {
+        window.location.href = '/new_back';
+      }
+      // 다른 명령에 대한 처리도 추가할 수 있습니다.
+    };
+</script>
+</body>
+</html>

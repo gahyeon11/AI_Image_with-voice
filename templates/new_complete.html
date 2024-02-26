@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>작업실/초심자6</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black%3A400"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anybody%3A700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;300;400;500&family=Inter:wght@500;600&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/styles/new_complete.css"/>
+</head>
+<body>
+
+  <div class="rectangle-left"></div>
+<div class="item-6-39T">
+  <a href="{{url_for("new_filter")}}">   </a>
+  <!-- <img class="auto-group-qyh3-Z7o" src="../static/assets/left_rectangle.png"/></a> -->
+  <div class="auto-group-cyaz-fwX">
+    <div class="group-61-Bey">
+      <div class="auto-group-7ayo-jRb">
+        <div class="group-62-rFK">
+          <a href="{{ url_for("intro")}}">  
+          <img class="group-11-NUZ" src="../static/assets/group-11-rdw.png"/></a>
+          <div class="me-muse-hmj">ME:MUSE</div>
+        </div>
+        <div class="group-10-zkq">
+          <div class="group-1-MbP">
+            <div class="workplace-5nH"><a href="{{ url_for("workplace")}}">Workplace</a></div>
+            <div class="museum-CM7"><a href="{{ url_for("whole_gallery1")}}">Gallery</a></div>
+            <div class="guide-X8V"><a href="{{ url_for("guide")}}">Guide</a></div>
+            <div class="login-EYh"><a href="{{url_for("logout")}}">logout</a></div>
+          </div>
+          <div class="group-2-mHj">
+            <a href="{{ url_for("my_page")}}"> 
+            <img class="icons8-user1-1-vgR" src="../static/assets/icons8-user1-1-bVB.png"/></a>
+          </div>
+        </div>
+      </div>
+      <img class="line-2-TAZ" src="../static/assets/line-2-mxd.png"/>
+    </div>
+    <div class="item--nyX">
+      <span class="item--nyX-sub-0"><span style="color:#003D75">{{ username }}</span>
+      <span style="color:black">
+       
+       작가님의 작품이 완성됐습니다.
+      <br/>
+      작품 제목과 설명을 입력 또는 말해서 캡션을 설정해주세요. <br/><br/> <br/><br/>
+      </span>
+    </div>
+    <div class="auto-group-5eyr-R9K">
+      <div class="auto-group-gtkd-LGH">
+        <div class="rectangle-9-U7b"><img src="{{ url_for('static', filename=session['file_path']) }}" alt="Filtered Image">
+        </div>
+        <div class="group-3-17X" style="">
+          <div class="item--vEV">{{ username }}</div>
+          <div class="line-1-DzH">
+          </div>
+          <form action="{{ url_for('new_save_success') }}" id="captions-form" method="post">
+            {{ form.hidden_tag() }} <!-- CSRF 토큰 렌더링 -->
+            <!-- 작품 제목 입력 필드 -->
+            <div class="group-26-ZYM">
+            
+            {{ form.title(placeholder="작품 제목") }}</div>
+    
+            <div class="item-2023-QJ5">Caption</div>
+            <div class="auto-group-bzhs-iJm">
+                <!-- 작품 설명 입력 필드 -->
+               
+                {{ form.caption(rows=7, placeholder="작품 설명") }}
+            </div>
+            <div class="group-58-Bzy">
+              <!-- 저장 버튼 추가 -->
+              <button id="save-button" type="submit" style="background:#003D75; color:white; font-family:Hahmlet; font-size:1.6rem">저장</button>
+            </div>
+          </form>
+          
+        </div>
+      </div>
+      <div class="item--hwP">
+        <br/><br/> <br/>
+        작품을 저장할까요?
+        <br/>
+        저장 버튼 클릭 또는 말씀해 주세요.
+        <br/> <br/> 
+        저장된 작품은 ‘마이 페이지&gt;나의 작품’에서 확인할 수 있습니다.
+        <br/>
+        (저장하지 않으면 작품은 사라집니다.)
+      </div>
+      <!-- <div class="auto-group-n9ms-Gd7"> -->
+      
+        <!-- <div class="group-59-dry"><a href="{{url_for('new_no_save')}}" style="color:white">아니오</a></div>
+          
+      </div> -->
+      </div>
+      <div class="mic-wrapper">
+        <div class="mic-blink-circle"></div>
+        <img class="bi-mic-fill-JTK" src="../static/assets/bi-mic-fill-1J9.png" style="
+        width:  45px;"/>
+      </div>
+      <!-- <img class="bi-mic-fill-JTK mic-blink" src="../static/assets/bi-mic-fill-1J9.png"/> -->
+    </div>
+  </div>
+  <div class="rectangle-right"></div>
+</div>
+<!-- HTML 코드 중 수정한 부분 -->
+<script>
+
+  const recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.lang = 'ko-KR';
+  
+  let title = '';
+  let captions = '';
+  let isTitleComplete = false;
+  
+  window.addEventListener('load', () => {
+    recognition.start();
+  });
+  
+  recognition.onresult = (event) => {
+    const result = event.results[event.results.length - 1][0].transcript;
+    console.log('음성 인식 결과:', result);
+  
+    switch (result) {
+      case '마이페이지':
+        window.location.href = '/mypage';
+        break;
+      case '가이드':
+        window.location.href = '/guide';
+        break;
+      case '이전으로':
+        window.location.href = '/new_filter';
+        break;
+      case '저장':
+        if (!isTitleComplete) {
+          isTitleComplete = true;
+          document.getElementById('title').disabled = true;
+          document.getElementById('captions').focus();
+        } else {
+          const form = document.getElementById('captions-form');
+          form.action = "{{ url_for('new_save_success') }}";
+          form.submit();
+        }
+        break;
+      // default:
+      //   if (!isTitleComplete) {
+      //     title += result + ' ';
+      //     document.getElementById('title').value = title;
+      //   } else {
+      //     captions += result + ' ';
+      //     document.getElementById('captions').value = captions;
+      //   }
+      //   break;
+    }
+  };
+  
+  document.getElementById('save-button').addEventListener('click', () => {
+    const form = document.getElementById('captions-form');
+    form.action = "{{ url_for('new_save_success') }}";
+    form.submit();
+  });
+  </script>
+  
+</body>
+</html>

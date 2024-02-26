@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>작업실/초보자5</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500%2C600%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anybody%3A700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black%3A400"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;300;400;500&family=Inter:wght@500;600&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/styles/new_filter.css"/>
+</head>
+<body>
+  <div id="loadingOverlay" style="display: none;">
+    <div class="loadingContent">
+      <img src="../static/assets/loading.gif" alt="생성 중..."/>
+      <p>생성 중..</p>
+    </div>
+  </div>
+<div class="item-5-WPb">
+  <div class="rectangle-left"></div>
+  <a href="{{url_for("new_object")}}">   </a>
+  <!-- <img class="auto-group-ndaz-RmT" src="../static/assets/left_rectangle.png"/> -->
+  <div class="auto-group-ze5f-Yr5">
+    <div class="group-61-4ZX">
+      <div class="auto-group-t7po-d6q">
+        <div class="group-62-wdK">
+          <a href="{{ url_for("intro")}}">  
+          <img class="group-11-sG5" src="../static/assets/group-11-6j3.png"/></a>
+          <div class="me-muse-ofX">ME:MUSE</div>
+        </div>
+        <div class="group-10-7RK">
+          <div class="group-1-fhj">
+            <div class="workplace-CSm"><a href="{{ url_for("workplace")  }}">Workplace</a></div>
+            <div class="museum-iAD"><a href="{{ url_for("whole_gallery1")}}">Gallery</a></div>
+            <div class="guide-qVj"><a href="{{ url_for("guide")}}">Guide</a></div>
+            <div class="login-xqF"><a href="{{url_for("logout")}}">logout</a></div>
+          </div>
+          <div class="group-2-Cjb">
+            <a href="{{ url_for("my_page")}}"> 
+            <img class="icons8-user1-1-Za9" src="../static/assets/icons8-user1-1-eed.png"/></a>
+          </div>
+        </div>
+      </div>
+      <img class="line-2-6KB" src="../static/assets/line-2-q3P.png"/>
+    </div>
+    <div class="auto-group-ame9-dK7">
+      <div class="group-14-jN9">
+        <div class="item--TJ9">
+          <span class="item--TJ9-sub-0">{{ username }}&nbsp;</span>
+          <span class="item--TJ9-sub-1"> 작가님의 작업</span>
+        </div>
+        <div class="auto-group-3sa1-8Ho">
+          <div class="line-4-TL5">
+          </div>
+          <div class="ellipse-1-afb">
+          </div>
+          <div class="item--hER">스타일</div>
+          <div class="ellipse-2-aJD">
+          </div>
+          <div class="item--Vg5">구도</div>
+          <div class="ellipse-3-Zvq">
+          </div>
+          <div class="item--UY1">배경</div>
+          <div class="ellipse-4-mX7">
+          </div>
+          <div class="item--HkM">오브젝트</div>
+          <div class="ellipse-5-zem">
+          </div>
+          <div class="item--7Db">필터</div>
+        </div>
+      </div>
+      <div class="item--os7">적용하고 싶은 필터를 클릭하거나 번호를 말씀해 주세요.</div><br><br>
+      <div class="auto-group-um8v-S9P">
+        <div class="item--9Jh">1. 없음</div>
+        <div class="item--riu">2. 화사한</div>
+        <div class="item--may">3. 노을빛</div>
+        <div class="item--tfb">4. 밝은</div>
+        <div class="item--R9j">5. 새벽하늘</div>
+        <div class="item--LGh">6. 낭만적</div>
+      </div>
+      <div class="auto-group-fbdk-rkq">
+        <a ><div class="rectangle-9-bCd" onclick="sendFilter('1')"><img src="../static/I/001.png" width="100%" height = "100%" >
+        </div></a>
+        <a ><div class="rectangle-11-LAD" onclick="sendFilter('2')"><img src="../static/I/002.png" width="100%" height = "100%" >
+        </div></a>
+        <a ><div class="rectangle-12-sA9" onclick="sendFilter('3')"><img src="../static/I/003.png" width="100%" height = "100%" >
+        </div></a>
+        <a > <div class="rectangle-13-p5P" onclick="sendFilter('4')"><img src="../static/I/004.png" width="100%" height = "100%" >
+        </div></a>
+        <a > <div class="rectangle-14-Mb7" onclick="sendFilter('5')"><img src="../static/I/005.png" width="100%" height = "100%" >
+        </div></a>
+        <a > <div class="rectangle-15-JWM" onclick="sendFilter('6')"><img src="../static/I/006.png" width="100%" height = "100%" >
+        </div></a>
+      </div>
+      <div class="auto-group-d2tq-2hF">
+        <div class="item--kdF">7. 높은 대비</div>
+        <div class="item--sSy">8. 차분한</div>
+        <div class="item--CEM">9. 빈티지</div>
+        <div class="item--7cD">10. 블루밍</div>
+        <div class="item--Rcu">11. 세피아</div>
+        <div class="item--MFf">12. 흑백</div>
+      </div>
+      <div class="auto-group-rwz7-GtR">
+        <a > <div class="rectangle-16-oNZ"onclick="sendFilter('7')"><img src="../static/I/007.png" width="100%" height = "100%" >
+        </div></a>
+        <a > <div class="rectangle-20-LNV"onclick="sendFilter('8')"><img src="../static/I/008.png" width="100%" height = "100%" >
+        </div></a>
+        <a > <div class="rectangle-21-5ay"onclick="sendFilter('9')"><img src="../static/I/009.png" width="100%" height = "100%" >
+        </div></a>
+        <a > <div class="rectangle-18-pYZ"onclick="sendFilter('10')"><img src="../static/I/010.png" width="100%" height = "100%" >
+        </div></a>
+        <a > <div class="rectangle-19-Na5"onclick="sendFilter('11')"><img src="../static/I/011.png" width="100%" height = "100%" >
+        </div></a>
+        <a > <div class="rectangle-17-XC5"onclick="sendFilter('12')"><img src="../static/I/012.png" width="100%" height = "100%" >
+        </div></a>
+      </div>
+      <div class="mic-wrapper">
+        <div class="mic-blink-circle"></div>
+        <img class="bi-mic-fill-JTK" src="../static/assets/bi-mic-fill-1J9.png" style="
+        width:  45px;"/>
+      </div>
+    </div>
+  </div>
+  <div class="rectangle-right">
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 초기 로딩 시 로딩 화면 숨김
+  window.onload = function() {
+    document.getElementById('loadingOverlay').style.display = 'none';
+  };
+
+  // 모든 링크에 대한 클릭 이벤트 처리
+  document.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault(); // 기본 링크 이동을 중단
+      var href = this.getAttribute('href'); // 링크의 href 값 가져오기
+
+      // 로딩 화면 표시
+      document.getElementById('loadingOverlay').style.display = 'flex';
+
+      // 지정된 시간 후에 페이지 이동
+    });
+  });
+});
+  function sendFilter(filterNumber) {
+    // JavaScript를 사용하여 서버에 POST 요청을 보내는 로직
+    fetch('{{ url_for("new_filter") }}', {
+      method: 'POST',
+      // 서버가 이해할 수 있는 형식으로 헤더를 설정합니다.
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      // CSRF 토큰이 필요한 경우 여기에 추가해야 합니다.
+      body: 'filter=' + filterNumber
+    })
+    .then(response => {
+      if (response.ok) {
+        // 필터 적용이 성공적으로 완료되면, 사용자를 완료 페이지로 리다이렉트합니다.
+        window.location.href = '{{ url_for("new_complete") }}';
+      } else {
+        // 에러 처리
+        alert('서버에서 문제가 발생했습니다.');
+      }
+    })
+    .catch(error => {
+      console.error('에러:', error);
+    });
+  }
+
+  // 음성 인식 API 초기화
+  const recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.lang = 'ko-KR'; // 한국어로 설정
+
+  // 음성 인식 시작
+  recognition.start();
+
+  // 음성 인식 결과 이벤트 리스너
+  recognition.onresult = (event) => {
+      const result = event.results[event.results.length - 1][0].transcript;
+      console.log('음성 인식 결과:', result);
+
+      // 인식된 음성 명령에 따라 URL로 이동
+      if (result.includes('마이페이지')) {
+        window.location.href = '/mypage';
+      } else if (result.includes('가이드')) {
+        window.location.href = '/guide';
+      } else if (result.includes('1번')) {
+        sendFilter(1);
+      } else if (result.includes('2번')) {
+        sendFilter(2);
+      } else if (result.includes('3번')) {
+        sendFilter(3);
+      } else if (result.includes('4번')) {
+        sendFilter(4);
+      } else if (result.includes('5번')) {
+        sendFilter(5);
+      } else if (result.includes('6번')) {
+        sendFilter(6);
+      } else if (result.includes('7번')) {
+        sendFilter(7);
+      } else if (result.includes('8번')) {
+        sendFilter(8);
+      } else if (result.includes('9번')) {
+        sendFilter(9);
+      } else if (result.includes('10번')) {
+        sendFilter(10);
+      } else if (result.includes('11번')) {
+        sendFilter(11);
+      } else if (result.includes('12번')) {
+        sendFilter(12);
+      } else if (result.includes('이전으로')) {
+        window.location.href = '/new_back';
+      }
+      // 다른 명령에 대한 처리도 추가할 수 있습니다.
+    };
+</script>
+</body>
+</html>

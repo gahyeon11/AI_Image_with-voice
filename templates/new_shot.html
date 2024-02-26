@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>작업실/초보자2</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anybody%3A700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black%3A400"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500%2C600%2C700"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;300;400;500&family=Inter:wght@500;600&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/styles/new_shot.css"/>
+</head>
+<body>
+  <div id="loadingOverlay" style="display: none;">
+    <div class="loadingContent">
+      <img src="../static/assets/loading.gif" alt="생성 중..."/>
+      <p>생성 중..</p>
+    </div>
+  </div>
+<div class="item-4-RPo">
+    <div class="rectangle-left"></div>
+  <a href="{{url_for("new_style")}}">   
+  <!-- <img class="auto-group-lsuf-vLZ" src="../static/assets/left_rectangle.png"/></a> -->
+  <div class="auto-group-fyxh-qTX">
+    <div class="group-61-MRs">
+      <div class="auto-group-dxtb-6uF">
+        <div class="group-62-DDB">
+          <a href="{{ url_for("intro")}}">   
+          <img class="group-11-jhK" src="../static/assets/group-11-d5B.png"/></a>
+          <div class="me-muse-fay">ME:MUSE</div>
+        </div>
+        <div class="group-10-9W9">
+          <div class="group-1-Jdw">
+            <div class="workplace-psB"><a href="{{ url_for("workplace")  }}">Workplace</a></div>
+            <div class="museum-8ss"><a href="{{ url_for("whole_gallery1")}}">Gallery</a></div>
+            <div class="guide-FxV"><a href="{{ url_for("guide")}}">Guide</a></div>
+            <div class="login-PJ1"><a href="{{url_for("logout")}}">logout</a></div>
+          </div>
+          <div class="group-2-7Uu">
+            <a href="{{ url_for("my_page")}}">
+            <img class="icons8-user1-1-H8V" src="../static/assets/icons8-user1-1-NBs.png"/></a>
+          </div>
+        </div>
+      </div>
+      <img class="line-2-Qiu" src="../static/assets/line-2-8rM.png"/>
+    </div>
+    <div class="auto-group-7cqz-jmB">
+      <div class="group-14-GWD">
+        <div class="item--zBK">
+          <span class="item--zBK-sub-0">{{ username }}&nbsp;</span>
+          <span class="item--zBK-sub-1"> 작가님의 작업</span>
+        </div>
+        <div class="auto-group-ojm7-2GR">
+          <div class="line-4-MpV">
+          </div>
+          <div class="ellipse-1-t3j">
+          </div>
+          <div class="item--BoX">스타일</div>
+          <div class="ellipse-2-4cR">
+          </div>
+          <div class="item--aam">구도</div>
+          <div class="ellipse-3-eqX">
+          </div>
+          <div class="item--Mzq">배경</div>
+          <div class="ellipse-4-qv1">
+          </div>
+          <div class="item--M7f">오브젝트</div>
+          <div class="ellipse-5-rKK">
+          </div>
+          <div class="item--ZzR">필터</div>
+        </div>
+      </div>
+      <div class="item--sVK">마음에 드는 그림 구도를 클릭하거나 번호를 말씀해 주세요.</div><br><br>
+      <div class="auto-group-wbvz-Vmb">
+        <div class="item-1-1zq">1. 로우 앵글(low angle),<br>
+          니 샷(knee shot)</div>
+        <div class="item-2-M37">2. 아이레벨 앵글(eye-level angle),<br>
+          미디움 샷(medium shot)</div>
+        <div class="item-3-Trq">3. 아이레벨 앵글(eye-level angle),<br>
+          풀 샷(full shot)</div>
+      </div>
+      <div class="auto-group-c7p7-7Ah">
+        <a href="{{url_for("new_back")}}" class="rectangle-22-deq" data-prompt="low angle, knee shot, from below,"> <img src="../static/assets/angle_low.png">
+        </a>
+        <a href="{{url_for("new_back")}}" class="rectangle-26-nGq" data-prompt="eye-level angle, medium shot,"> <img src="../static/assets/angle_middle.png">
+        </a>
+        <a href="{{url_for("new_back")}}" class="rectangle-27-jSy" data-prompt="eye-level angle, full shot,"> <img src="../static/assets/angle_full.png">
+        </a>
+      </div>
+      <div class="mic-wrapper">
+        <div class="mic-blink-circle"></div>
+        <img class="bi-mic-fill-JTK" src="../static/assets/bi-mic-fill-1J9.png" style="
+        width:  45px;"/>
+      </div>
+    </div>
+  </div></div>
+  <div class="rectangle-right">
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    document.getElementById('loadingOverlay').style.display = 'flex';
+      window.onload = function() {
+        document.getElementById('loadingOverlay').style.display = 'none';
+      };
+    document.querySelectorAll('.rectangle-22-deq, .rectangle-26-nGq, .rectangle-27-jSy').forEach(function(rectangle){
+      rectangle.addEventListener('click', function(event){
+        event.preventDefault(); // 기본 링크 동작 방지
+
+        // 클릭된 요소의 데이터 값 가져오기
+        var prompt = this.getAttribute('data-prompt');
+
+        // 서버에 포스트 요청
+        fetch('/new_shot', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({prompt: prompt})
+        })
+        .then(response => response.json())
+        .then(data => {
+          // 서버로부터 리다이렉트 주소를 받아 페이지 이동
+          if(data.redirect){
+            window.location.href = data.redirect;
+          }
+        })
+        .catch(error => {
+          console.error('Error_new_shot:', error);
+        });
+      });
+    });
+      // 음성 인식 API 초기화
+  const recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.lang = 'ko-KR'; // 한국어로 설정
+
+  // 음성 인식 시작
+  recognition.start();
+
+  // 음성 인식 결과 이벤트 리스너
+  recognition.onresult = (event) => {
+      const result = event.results[event.results.length - 1][0].transcript;
+      console.log('음성 인식 결과:', result);
+
+      // 인식된 음성 명령에 따라 URL로 이동
+      if (result.includes('마이페이지')) {
+        window.location.href = '/mypage';
+      } else if (result.includes('가이드')) {
+        window.location.href = '/guide';
+      } else if (result.includes('1번')) {
+        document.querySelector('.rectangle-22-deq').click();
+      } else if (result.includes('2번')) {
+        document.querySelector('.rectangle-26-nGq').click();
+      } else if (result.includes('3번')) {
+        document.querySelector('.rectangle-27-jSy').click();
+      }
+      // 다른 명령에 대한 처리도 추가할 수 있습니다.
+    };
+  });
+</script>
+</body>
+</html>

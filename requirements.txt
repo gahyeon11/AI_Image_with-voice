@@ -1,0 +1,12 @@
+Flask
+Flask-SQLAlchemy
+Flask-Cors
+Flask-Migrate
+flask_wtf
+SQLAlchemy
+Pillow
+WTForms
+pyscrypt
+requests
+Flask-Bcrypt
+pymysql

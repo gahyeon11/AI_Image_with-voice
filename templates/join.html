@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>키보드/마우스 사용자 - 회원가입1</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anybody%3A700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black%3A400"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500%2C600%2C700"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;300;400;500&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/styles/join.css"/>
+</head>
+<body>
+<div class="item--UJV">
+  <div class="rectangle-left">
+  </div>
+  <div class="auto-group-3fj1-KK7">
+    <div class="group-61-Ews">
+      <div class="auto-group-2b77-bGd">
+        <div class="group-62-iMF">
+          <a href="{{ url_for("intro")}}">
+          <img class="group-11-3eR" src="../static/assets/group-11-c4H.png"/></a>
+          <div class="me-muse-y2H">ME:MUSE</div>
+        </div>
+        <div class="group-10-stM">
+          <div class="group-1-Eiu">
+            <div class="workplace-a25"><a href="{{ url_for("workplace")  }}">Workplace</a></div>
+            <div class="museum-hMb"><a href="{{ url_for("whole_gallery1")}}">Gallery</a></div>
+            <div class="guide-cjT"><a href="{{ url_for("guide")}}">Guide</a></div>
+            <div class="login-8xh"><a href="{{url_for("login")}}">Login</a></div>
+          </div>
+          <div class="group-2-fSq">
+            <a href="{{ url_for("my_page")}}"> 
+            <img class="icons8-user1-1-qMK" src="../static/assets/icons8-user1-1-uLM.png"/></a>
+          </div>
+        </div>
+      </div>
+      <img class="line-2-Zo7" src="../static/assets/line-2-uNH.png"/>
+    </div>
+    <img class="group-12-huK" src="../static/assets/group-12.png"/>
+    <div class="auto-group-k5gm-pyw">
+      <form action="{{ url_for('join') }}" method="post" id="join-membership-form">
+        <div class="auto-group-vkym-w2y">
+          <label for="name">
+            <input type="text" name="name" id="name" required autofocus placeholder="이름">
+          </label>
+        </div><br>
+        
+        <div class="auto-group-7tus-npH">
+          <label for="birthdate">
+            <input type="text" name="birthdate" id="birthdate" required placeholder="생년월일(8자리)">
+          </label>
+        </div><br>
+        
+        <div class="auto-group-h1wp-4G1">
+          <label for="username">
+            <input type="text" name="username" id="username" required placeholder="아이디">
+          </label>
+        </div><br>
+        
+        <div class="auto-group-uajv-8Wm">
+          <label for="password">
+            <input type="password" name="pwd" id="password" required placeholder="비밀번호(숫자 6자리)" pattern="\d{6}" title="비밀번호는 숫자 6자리여야 합니다.">
+          </label>
+        </div><br>
+        
+        <div class="group-6-DYD">
+          <label for="submit">
+          <input type="submit"  name="submit"value="가입하기" style="background:#003D75; color:white">
+        </label></div>
+  
+      </form>
+    </div>
+  </div>
+  <div class="rectangle-right">
+  </div>
+</div>
+</body>

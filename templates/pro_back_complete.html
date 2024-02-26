@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>작업실/전문가5</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anybody%3A700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A500%2C600%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo+Black%3A400"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C500%2C600%2C700"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@200;300;400;500&family=Inter:wght@500;600&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/styles/pro_back_complete.css"/>
+</head>
+<body>
+
+<div class="item-3-jRb">
+  <div class="rectangle-left"></div>
+  <div class="auto-group-jkff-mt5">
+    <div class="group-61-hWq">
+      <div class="auto-group-z3yd-G49">
+        <div class="group-62-n2V">
+          <a href="{{ url_for('intro') }}">  
+          <img class="group-11-VxV" src="../static/assets/group-11-QF3.png"/></a>
+          <div class="me-muse-Ev5">ME:MUSE</div>
+        </div>
+        <div class="group-10-x5P">
+          <div class="group-1-7DB">
+            <div class="workplace-dBX"><a href="{{ url_for('workplace') }}">Workplace</a></div>
+            <div class="museum-wi1"><a href="{{ url_for('whole_gallery1') }}">Gallery</a></div>
+            <div class="guide-UC9"><a href="{{ url_for('guide') }}">Guide</a></div>
+            <div class="login-b1s"><a href="{{ url_for('logout') }}">logout</a></div>
+          </div>
+          <div class="group-2-v49">
+            <a href="{{ url_for('my_page') }}"> 
+            <img class="icons8-user1-1-5hj" src="../static/assets/icons8-user1-1-WWd.png"/></a>
+          </div>
+        </div>
+      </div>
+      <img class="line-2-cSm" src="../static/assets/line-2-2V7.png"/>
+    </div>
+    <div class="auto-group-p6pr-MQM" >
+     
+      <div class="item--J4h">배경이 마음에 드나요?</div>
+      <div class="item--UdP">
+        <span class="item--UdP-sub-0">처음으로 돌아가고 싶다면 클릭 또는
+        <span style="color:#1400ff; font-weight:bold">‘처음’</span>
+        이라고 말씀해 주세요.
+        <br/>
+        다음 단계로 넘어가고 싶다면 클릭 또는
+        <span style="color:#1400ff; font-weight:bold">‘다음’</span>
+        이라고 말씀해 주세요.</span>
+      </div>
+      {% if latest_image_path %}
+  <div class="rectangle-9-kYH">
+    <img class="item--J2u" src="{{ url_for('static', filename=latest_image_path) }}" />
+  </div>
+{% endif %}
+      <div class="group-14-tPb">
+        <div class="item--cqP">
+          <span class="item--cqP-sub-0">{{ username }}&nbsp;</span>
+          <span class="item--cqP-sub-1"> 작가님의 작업</span>
+        </div>
+        <div class="auto-group-cswu-yZT">
+          <div class="line-4-uT7">
+          </div>
+          <div class="ellipse-1-RRT">
+          </div>
+          <div class="item--L2d">스타일</div>
+          <div class="ellipse-2-pCh">
+          </div>
+          <div class="item--KQM">배경</div>
+          <div class="ellipse-3-DVj">
+          </div>
+          <div class="item--jiy">오브젝트</div>
+          <div class="ellipse-4-qX7">
+          </div>
+          <div class="item--N1F">배치</div>
+          <div class="ellipse-5-ToP">
+          </div>
+          <div class="item--nqf">필터</div>
+          <!-- <div class="ellipse-6-VEH">
+          </div> -->
+          <!-- <div class="item--pGZ">필터</div> -->
+        </div>
+      </div>
+      <div class="auto-group-623s-7Ff">
+        <div class="group-38-EbB"><a href="{{ url_for('pro_back') }}" style="color:white" onclick="deleteAllImages()">처음</a></div>
+        <div class="group-39-6dP"><a href="{{ url_for('pro_object') }}" style="color:white" >다음</a></div>
+      </div>
+          <div class="mic-wrapper">
+        <div class="mic-blink-circle"></div>
+        <img class="bi-mic-fill-JTK" src="../static/assets/bi-mic-fill-1J9.png" style="
+        width:  45px;"/>
+      </div>
+    </div>
+  </div>
+  <div class="rectangle-right">
+  </div>
+</div>
+<script>
+  // 음성 인식 API 초기화
+  const recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+  recognition.interimResults = true;
+  recognition.lang = 'ko-KR'; // 한국어로 설정
+  
+  // 음성 인식 시작
+  recognition.start();
+  recognition.onresult = (event) => {
+      const result = event.results[event.results.length - 1][0].transcript;
+      console.log('음성 인식 결과:', result);
+
+      // 인식된 음성 명령에 따라 URL로 이동
+      if (result.includes('마이페이지')) {
+        window.location.href = '/mypage';
+      } else if (result.includes('가이드')) {
+        window.location.href = '/guide';
+      } else if (result.includes('다음')) {
+        window.location.href = '/pro_object';
+      } else if (result.includes('이전으로')) {
+        window.location.href = '/pro_back';
+      }
+      // 다른 명령에 대한 처리도 추가할 수 있습니다.
+    };
+
+  function deleteAllImages() {
+    // 클라이언트 UI에서 이미지 삭제
+    var images = document.querySelectorAll('img');
+    images.forEach(function(image) {
+        image.remove();
+    });
+
+    // 서버에 이미지 삭제 요청 전송
+    fetch('/delete_image', {
+        method: 'POST',
+        // 필요한 경우 추가 데이터 전송
+    }).then(response => {
+        if (response.ok) {
+            console.log('Server has been notified about the image deletion');
+        } else {
+            console.error('Error notifying the server');
+        }
+    }).catch(error => {
+        console.error('Network error:', error);
+    });
+}
+
+</script>
+</body>
+</html>
